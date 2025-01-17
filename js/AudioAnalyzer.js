@@ -11,21 +11,20 @@ class AudioAnalyzer {
 
     async initialize() {
         if (!this.isInitialized) {
-            this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            
-            if (this.audioContext.state === 'suspended') {
-                await this.audioContext.resume();
+            // Create AudioContext only if it hasn't been created yet
+            if (!this.audioContext) {
+                this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
             }
             
             // Main analyzer for full spectrum
             this.analyser = this.audioContext.createAnalyser();
-            this.analyser.fftSize = 512; // Increased for better frequency resolution
+            this.analyser.fftSize = 512;
             this.dataArray = new Uint8Array(this.analyser.frequencyBinCount);
             
             // Bass analyzer with filter
             this.bassFilter = this.audioContext.createBiquadFilter();
             this.bassFilter.type = 'lowpass';
-            this.bassFilter.frequency.value = 100; // Focus on frequencies below 150Hz
+            this.bassFilter.frequency.value = 150;
             this.bassFilter.Q.value = 1;
             
             this.bassAnalyser = this.audioContext.createAnalyser();
@@ -42,6 +41,25 @@ class AudioAnalyzer {
             
             this.isInitialized = true;
         }
+        
+        // If the context is suspended, resume it
+        if (this.audioContext && this.audioContext.state === 'suspended') {
+            await this.audioContext.resume();
+        }
+        
+        // Wait for the current audio to be loaded
+        return new Promise(resolve => {
+            const handleLoaded = () => {
+                this.audio.removeEventListener('loadedmetadata', handleLoaded);
+                resolve();
+            };
+            
+            if (this.audio.readyState >= 1) {
+                resolve();
+            } else {
+                this.audio.addEventListener('loadedmetadata', handleLoaded);
+            }
+        });
     }
 
     getAudioData() {

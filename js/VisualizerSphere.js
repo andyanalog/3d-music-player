@@ -36,7 +36,7 @@ class VisualizerSphere {
         this.sphere.scale.set(targetScale, targetScale, targetScale);
         
         // Rotation speed also influenced by bass
-        const rotationSpeed = (audioData.bass / 256) * 0.03;
+        const rotationSpeed = (audioData.bass / 256) * 0.02;
         this.sphere.rotation.x += rotationSpeed;
         this.sphere.rotation.y += rotationSpeed;
         
