@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: monospace;
+    background: #000;
+    color: #fff;
+    font-size: 16px; /* Base font size increased */
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.player-container {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem; /* Increased size for header text */
+}
+
+.player {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 15%; /* Brings the player controls up */
+}
+
+.song-info {
+    margin-bottom: 2rem;
+}
+
+.song-info .label {
+    font-size: 1.4rem; /* Increased size */
+    margin-bottom: 0.5rem;
+}
+
+.song-info .title {
+    font-size: 1.8rem; /* Increased size */
+}
+
+.logo {
+    font-size: 3rem;
+    margin: 2rem 0;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 3rem; /* Increased gap between buttons */
+    margin: 3rem 0;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem; /* Increased button size */
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.control-btn:hover {
+    opacity: 0.8;
+}
+
+.playtime {
+    font-size: 1.4rem; /* Increased size */
+    margin-top: 2rem;
+}
+
+.progress-bar {
+    width: 300px; /* Increased width */
+    height: 3px; /* Slightly thicker */
+    background: #333;
+    margin: 1rem auto;
+}
+
+#progress {
+    width: 0%;
+    height: 100%;
+    background: white;
+    transition: width 0.1s linear;
+}
+

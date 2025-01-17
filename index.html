@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Music Player</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <canvas id="visualizer"></canvas>
+    
+    <div class="player-container">
+        <div class="header">
+            <div class="webflow">PLAYER DEMO</div>
+            <div class="artist-name">ANDRES LOZANO</div>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/andrés-lozano-930698166" target="_blank">(LINKEDIN)</a>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="song-info">
+                <div class="label">//SONG PLAYING</div>
+                <div class="title">UNTITLED - SONG</div>
+            </div>
+
+            <div class="controls">
+                <button id="prevBtn" class="control-btn">⏮</button>
+                <button id="playPauseBtn" class="control-btn">⏸</button>
+                <button id="nextBtn" class="control-btn">⏭</button>
+            </div>
+
+            <div class="playtime">
+                <span id="currentTime">00:00</span>
+                <div class="progress-bar">
+                    <div id="progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/AudioAnalyzer.js"></script>
+    <script src="js/VisualizerSphere.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
