@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Music Player</title>
@@ -12,7 +13,7 @@
     <div class="player-container">
         <div class="header">
             <div class="webflow">3D MUSIC PLAYER</div>
-            <div class="artist-name">DEV BY ANDRES LOZANO</div>
+            <div class="artist-name"></div>
             <div class="social-links">
                 <a href="https://github.com/andyanalog" target="_blank">GitHub</a>
             </div>
@@ -24,11 +25,15 @@
                 <div class="title">UNTITLED - SONG</div>
             </div>
 
-            <div class="controls">
-                <button id="prevBtn" class="control-btn">⏮</button>
-                <button id="playPauseBtn" class="control-btn">⏸</button>
-                <button id="nextBtn" class="control-btn">⏭</button>
-            </div>
+            <button id="prevBtn" class="control-btn">
+                <i class="fas fa-step-backward"></i>
+              </button>
+              <button id="playPauseBtn" class="control-btn">
+                <i class="fas fa-pause"></i>
+              </button>
+              <button id="nextBtn" class="control-btn">
+                <i class="fas fa-step-forward"></i>
+              </button>
 
             <div class="playtime">
                 <span id="currentTime">00:00</span>
