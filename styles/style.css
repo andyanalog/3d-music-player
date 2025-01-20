@@ -80,9 +80,9 @@ canvas {
     justify-content: center;
 }
 
-.control-btn:hover {
+/*.control-btn:hover {
     opacity: 0.8;
-}
+}*/
 
 .playtime {
     font-size: clamp(1rem, 4vw, 1.4rem);
