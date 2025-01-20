@@ -29,7 +29,7 @@ async function init() {
     // Set initial song source but don't initialize audio context yet
     audioAnalyzer.audio.src = songs[currentSongIndex].file;
     updateSongInfo();
-    playPauseBtn.textContent = '▶';
+    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
     
     // Add event listeners
     playPauseBtn.addEventListener('click', togglePlay);
@@ -43,7 +43,7 @@ async function init() {
     audioAnalyzer.audio.addEventListener('loadedmetadata', updateProgress);
     audioAnalyzer.audio.addEventListener('timeupdate', updateProgress);
     audioAnalyzer.audio.addEventListener('ended', () => {
-        playPauseBtn.textContent = '▶';
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
         cancelAnimationFrame(animationFrameId);
         playNext();
     });
@@ -113,11 +113,11 @@ async function togglePlay() {
 
         if (audioAnalyzer.audio.paused) {
             await audioAnalyzer.audio.play();
-            playPauseBtn.textContent = '⏸';
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
             animate();
         } else {
             audioAnalyzer.audio.pause();
-            playPauseBtn.textContent = '▶';
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
             cancelAnimationFrame(animationFrameId);
         }
     } catch (error) {
@@ -158,11 +158,11 @@ async function loadAndPlaySong() {
     
     try {
         await audioAnalyzer.audio.play();
-        playPauseBtn.textContent = '⏸';
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
         animate();
     } catch (error) {
         console.error('Error playing audio:', error);
-        playPauseBtn.textContent = '▶';
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
     }
 }
 
