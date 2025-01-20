@@ -15,12 +15,14 @@ canvas {
 }
 
 .player-container {
-    position: relative;
+    position: fixed;
     z-index: 2;
-    padding: 2rem;
+    padding: 1rem;
     height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 .header {
@@ -41,12 +43,14 @@ canvas {
 }
 
 .song-info .label {
-    font-size: 1.4rem; /* Increased size */
+    font-size: clamp(1rem, 4vw, 1.4rem);
     margin-bottom: 0.5rem;
 }
 
 .song-info .title {
-    font-size: 1.8rem; /* Increased size */
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    padding: 0 1rem;
+    word-wrap: break-word;
 }
 
 .logo {
@@ -57,17 +61,17 @@ canvas {
 .controls {
     display: flex;
     justify-content: center;
-    gap: 3rem; /* Increased gap between buttons */
-    margin: 3rem 0;
+    gap: clamp(1rem, 4vw, 3rem);
+    margin: 1rem 0;
 }
 
 .control-btn {
     background: none;
     border: none;
     color: white;
-    font-size: 2.5rem; /* Increased button size */
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
     cursor: pointer;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .control-btn:hover {
@@ -75,15 +79,16 @@ canvas {
 }
 
 .playtime {
-    font-size: 1.4rem; /* Increased size */
-    margin-top: 2rem;
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    margin-top: 1rem;
 }
 
 .progress-bar {
-    width: 300px; /* Increased width */
-    height: 3px; /* Slightly thicker */
+    width: min(90%, 300px);
+    height: 3px;
     background: #333;
     margin: 1rem auto;
+    cursor: pointer;
 }
 
 #progress {
@@ -93,3 +98,25 @@ canvas {
     transition: width 0.1s linear;
 }
 
+@media (max-height: 500px) {
+    .player-container {
+        padding: 0.5rem;
+    }
+    
+    .song-info {
+        margin-bottom: 0.5rem;
+    }
+    
+    .player {
+        margin-bottom: 1rem;
+        gap: 0.5rem;
+    }
+    
+    .control-btn {
+        padding: 0.25rem;
+    }
+    
+    .playtime {
+        margin-top: 0.5rem;
+    }
+}
