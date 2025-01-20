@@ -98,9 +98,9 @@ canvas {
     transition: width 0.1s linear;
 }
 
-@media (max-height: 400px) {
+@media (max-height: 500px) {
     .player-container {
-        padding: 0.5rem;
+        padding: 1rem;
     }
     
     .song-info {
