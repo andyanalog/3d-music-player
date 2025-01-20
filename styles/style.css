@@ -72,6 +72,12 @@ canvas {
     font-size: clamp(1.5rem, 6vw, 2.5rem);
     cursor: pointer;
     padding: 0.5rem;
+    margin: 0 8px;
+    width: 50px; /* Fixed width */
+    height: 50px; /* Fixed height */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .control-btn:hover {
